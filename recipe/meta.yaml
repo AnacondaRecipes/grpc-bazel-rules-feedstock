@@ -1,0 +1,38 @@
+{% set version = "1.74.1" %}
+
+package:
+  name: grpc-bazel-rules
+  version: {{ version }}
+
+source:
+  - url: https://github.com/grpc/grpc/archive/v{{ version }}.tar.gz
+    sha256: 7bf97c11cf3808d650a3a025bbf9c5f922c844a590826285067765dfd055d228
+    patches:
+      - 0001-Adjust-to-support-xla-specific-features.patch
+
+build:
+  number: 0
+  noarch: generic
+  skip: True  # [not linux64]
+
+requirements:
+  run_constraints:
+    - libgrpc {{ version }}.*
+
+test:
+  commands:
+    - test -f ${PREFIX}/share/bazel/grpc/bazel/python_rules.bzl  # [unix]
+
+about:
+  home: https://grpc.io/
+  dev_url: https://github.com/grpc/grpc
+  doc_url: https://grpc.io/docs/
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: Bazel rules for gRPC
+  description: Bazel rules for gRPC
+
+extra:
+  recipe-maintainers:
+    - conda-forge/grpc-cpp
