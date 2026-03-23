@@ -1,4 +1,4 @@
-{% set version = "1.71.0" %}
+{% set version = "1.78.0" %}
 
 package:
   name: grpc-bazel-rules
@@ -24,9 +24,9 @@ test:
     - test -f ${PREFIX}/share/bazel/grpc/bazel/python_rules.bzl  # [unix]
 
 about:
-  home: https://grpc.io/
+  home: https://grpc.io
   dev_url: https://github.com/grpc/grpc
-  doc_url: https://grpc.io/docs/
+  doc_url: https://grpc.io/docs
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
